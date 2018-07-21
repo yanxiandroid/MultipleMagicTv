@@ -355,52 +355,8 @@ public class MainFragment extends BaseFragment implements TvRecyclerView.OnItemL
     public void onItemClick(TvRecyclerView parent, View itemView, final int position) {
         currentPos = position;
         if(mainUIBeenList.get(currentPos).getType().equals(Constants.TITLE_TV)){
-
-            //云溪 组播 无响应
-//            launchApp("com.hassmedia.hslooktv");
-            if(Constants.DeviceInfo.equals(Constants.MSTAR_TV) || Constants.DeviceInfo.equals(Constants.OTHER)) {
-                if (isInstallByread(Constants.mstar_tv_player)) {
-                    Bundle bundle = new Bundle();
-                    bundle.putByte(Constants.PAGE_STATUS, Constants.PAGE_START);
-                    bundle.putString("behaviour", Constants.TV);
-                    ServiceUtils.startService(PageRecordService.class, bundle);
-                    //进入TV播放界面
-                    ComponentName componentName = new ComponentName(Constants.mstar_tv_player,
-                            "com.mstar.tv.tvplayer.ui.RootActivity");
-                    Intent intent01 = new Intent(Intent.ACTION_MAIN);
-                    intent01.addCategory(Intent.CATEGORY_LAUNCHER);
-                    intent01.setComponent(componentName);
-                    startActivity(intent01);
-                }
-            }
-            if(Constants.DeviceInfo.equals(Constants.PHILIPS) || Constants.DeviceInfo.equals(Constants.OTHER)) {
-
-//                //云溪 组播 无响应
-//            launchApp("com.hassmedia.hslooktv");
-                //花溪 HDMI 无声音
-//            MTvManager mTvManager = new MTvManager();
-//            mTvManager.setInputSource(mContext, TvOsType.EnumInputSource.E_INPUT_SOURCE_HDMI1);
-                //茅台大饭店
-                if (isInstallByread("com.sciptv.iptv")) {
-                    ComponentName componentName = new ComponentName("com.sciptv.iptv",
-                            "com.sciptv.iptv.Live");
-                    Intent intent01 = new Intent(Intent.ACTION_MAIN);
-                    intent01.addCategory(Intent.CATEGORY_LAUNCHER);
-                    intent01.setComponent(componentName);
-                    startActivity(intent01);
-                } else if(isInstallByread("com.hassmedia.hslooktv")){
-                    //云溪 组播 无响应
-                    launchApp("com.hassmedia.hslooktv");
-                }else if(isInstallByread("dpplay.com")){
-                    //大理 麓椿花园酒店
-                    Intent intent=new Intent();
-                    intent.setClassName("dpplay.com", "hdp.player.StartActivity");
-                    startActivity(intent);
-                }else{
-                    MTvManager mTvManager = new MTvManager();
-                    mTvManager.setInputSource(mContext, TvOsType.EnumInputSource.E_INPUT_SOURCE_HDMI1);
-                }
-            }
+            MTvManager mTvManager = new MTvManager();
+            mTvManager.setInputSource(mContext, TvOsType.EnumInputSource.E_INPUT_SOURCE_HDMI1);
             return;
         }
         Intent intent = new Intent(mContext,NetWorkService.class);

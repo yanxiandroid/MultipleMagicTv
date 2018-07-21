@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.apkfuns.logutils.LogUtils;
 import com.danikula.videocache.CacheListener;
 import com.danikula.videocache.HttpProxyCacheServer;
+import com.yht.iptv.MainFragment;
 import com.yht.iptv.R;
 import com.yht.iptv.callback.IDialogIPSetClick;
 import com.yht.iptv.callback.IFragmentOnclickListenr;

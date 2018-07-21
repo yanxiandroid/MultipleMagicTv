@@ -1,4 +1,4 @@
-package com.yht.iptv.view;
+package com.yht.iptv;
 
 import android.content.Context;
 import android.content.Intent;
@@ -53,9 +53,6 @@ public class BaseActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         LogUtils.tag(TAG).e("MagicTV-" + "V" + AppUtils.getAppVersionName() + "." + AppUtils.getAppVersionCode() + "_" + "release.apk");
-        if(Constants.DeviceInfo.equals(Constants.OTHER)) {
-            startTVFirsts(this);
-        }
     }
 
     public int getDimension(int id) {

@@ -690,61 +690,66 @@ public class MainActivity extends BaseActivity implements CacheListener, IFragme
 
     @Override
     public boolean onError(MediaPlayer mp, int what, int extra) {
-        if (isMainFragmentUI) {
-            try {
-                if (Constants.mainPageInfo.getAdSetting().getMainPage() == 1) {
-                    //在线播
-                    String videoPath1 = FileUtils.getAdvertPath() + Constants.key[advertPosition % Constants.key.length] + ".mp4";
-                    String videoPath2 = FileUtils.getAdvertPath() + Constants.key[(advertPosition + 1) % Constants.key.length] + ".mp4";
-                    if (new File(videoPath1).exists()) {
-                        mVideoView.setVideoPath(videoPath2);
-                        mVideoView.start();
-                        playTimes = 0;
-                        handler.removeMessages(ADVERT_DELAY);
-                        handler.sendEmptyMessageDelayed(ADVERT_DELAY, 1000);
-                        if (!isDownload) {
-                            isDownload = true;
-                            AdvertDownloadPresenter presenter = new AdvertDownloadPresenter(videoPath1, new MyAdvertListener());
-                            presenter.request(this, 30, room_id);
-                        }
-                    } else if (new File(videoPath2).exists()) {
-                        mVideoView.setVideoPath(videoPath2);
-                        mVideoView.start();
-                        playTimes = 0;
-                        handler.removeMessages(ADVERT_DELAY);
-                        handler.sendEmptyMessageDelayed(ADVERT_DELAY, 1000);
-                        if (!isDownload) {
-                            isDownload = true;
-                            AdvertDownloadPresenter presenter = new AdvertDownloadPresenter(videoPath2, new MyAdvertListener());
-                            presenter.request(this, 30, room_id);
-                        }
-                    } else {
-                        playVideo();
-                        if (!isDownload) {
-                            isDownload = true;
-                            AdvertDownloadPresenter presenter = new AdvertDownloadPresenter(new MyAdvertListener());
-                            presenter.request(this, 30, room_id);
-                        }
-                    }
-                } else {
-                    iv_bg.setVisibility(View.VISIBLE);
-                    //设置背景
-                    ShowImageUtils.showImageView(this, R.drawable.main_bg, iv_bg);
-                    mVideoView.stopPlayback();
-                    handler.removeMessages(DELAY);
-                    handler.sendEmptyMessageDelayed(DELAY, 1000);
-                }
-            } catch (Exception e) {
-
-            }
-        } else {
-            iv_bg.setVisibility(View.VISIBLE);
-            //设置背景
-            ShowImageUtils.showImageView(this, R.drawable.main_bg, iv_bg);
-            mVideoView.stopPlayback();
-            handler.removeMessages(DELAY);
-            handler.sendEmptyMessageDelayed(DELAY, 1000);
-        }
+        iv_bg.setVisibility(View.VISIBLE);
+        //设置背景
+        ShowImageUtils.showImageView(this, R.drawable.main_bg, iv_bg);
+        handler.removeMessages(DELAY);
+        handler.sendEmptyMessageDelayed(DELAY, 2000);
+//        if (isMainFragmentUI) {
+//            try {
+//                if (Constants.mainPageInfo.getAdSetting().getMainPage() == 1) {
+//                    //在线播
+//                    String videoPath1 = FileUtils.getAdvertPath() + Constants.key[advertPosition % Constants.key.length] + ".mp4";
+//                    String videoPath2 = FileUtils.getAdvertPath() + Constants.key[(advertPosition + 1) % Constants.key.length] + ".mp4";
+//                    if (new File(videoPath1).exists()) {
+//                        mVideoView.setVideoPath(videoPath2);
+//                        mVideoView.start();
+//                        playTimes = 0;
+//                        handler.removeMessages(ADVERT_DELAY);
+//                        handler.sendEmptyMessageDelayed(ADVERT_DELAY, 1000);
+//                        if (!isDownload) {
+//                            isDownload = true;
+//                            AdvertDownloadPresenter presenter = new AdvertDownloadPresenter(videoPath1, new MyAdvertListener());
+//                            presenter.request(this, 30, room_id);
+//                        }
+//                    } else if (new File(videoPath2).exists()) {
+//                        mVideoView.setVideoPath(videoPath2);
+//                        mVideoView.start();
+//                        playTimes = 0;
+//                        handler.removeMessages(ADVERT_DELAY);
+//                        handler.sendEmptyMessageDelayed(ADVERT_DELAY, 1000);
+//                        if (!isDownload) {
+//                            isDownload = true;
+//                            AdvertDownloadPresenter presenter = new AdvertDownloadPresenter(videoPath2, new MyAdvertListener());
+//                            presenter.request(this, 30, room_id);
+//                        }
+//                    } else {
+//                        playVideo();
+//                        if (!isDownload) {
+//                            isDownload = true;
+//                            AdvertDownloadPresenter presenter = new AdvertDownloadPresenter(new MyAdvertListener());
+//                            presenter.request(this, 30, room_id);
+//                        }
+//                    }
+//                } else {
+//                    iv_bg.setVisibility(View.VISIBLE);
+//                    //设置背景
+//                    ShowImageUtils.showImageView(this, R.drawable.main_bg, iv_bg);
+//                    mVideoView.stopPlayback();
+//                    handler.removeMessages(DELAY);
+//                    handler.sendEmptyMessageDelayed(DELAY, 1000);
+//                }
+//            } catch (Exception e) {
+//
+//            }
+//        } else {
+//            iv_bg.setVisibility(View.VISIBLE);
+//            //设置背景
+//            ShowImageUtils.showImageView(this, R.drawable.main_bg, iv_bg);
+//            mVideoView.stopPlayback();
+//            handler.removeMessages(DELAY);
+//            handler.sendEmptyMessageDelayed(DELAY, 1000);
+//        }
         return true;
     }
 

@@ -125,8 +125,8 @@ public class Constants {
 
     public static final String[] key = {"first", "second"};
 
-    public static String DeviceInfo = Constants.PHILIPS;
-    public static final String MSTAR_TV = "MSTAR_TV";
-    public static final String PHILIPS = "PHILIPS";
-    public static final String OTHER = "PHILIPS";
+//    public static String DeviceInfo = Constants.PHILIPS;
+//    public static final String MSTAR_TV = "MSTAR_TV";
+//    public static final String PHILIPS = "PHILIPS";
+//    public static final String OTHER = "PHILIPS";
 }

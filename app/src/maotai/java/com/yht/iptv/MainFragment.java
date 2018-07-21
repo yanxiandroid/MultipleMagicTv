@@ -73,11 +73,11 @@ public class MainFragment extends BaseFragment implements TvRecyclerView.OnItemL
     private Context mContext;
     private boolean isHidden;
     private String[] strings;
-//    private SparseArray<String> sparseArray;
+    //    private SparseArray<String> sparseArray;
     private MainPageInfo mainPageInfo;
     private List<MainUIBean> mainUIBeenList;
 
-    private String[] titleList = {Constants.TITLE_MOVIE, Constants.TITLE_MUSIC, Constants.TITLE_TV,Constants.TITLE_WEATHER,Constants.TITLE_SERVICE,Constants.TITLE_SHOPPING,Constants.TITLE_FOOD, Constants.TITLE_NEAR};
+    private String[] titleList = {Constants.TITLE_MOVIE, Constants.TITLE_MUSIC, Constants.TITLE_TV, Constants.TITLE_WEATHER, Constants.TITLE_SERVICE, Constants.TITLE_SHOPPING, Constants.TITLE_FOOD, Constants.TITLE_NEAR};
     private ImageView iv_logo;
     private TextView hotel_name_en;
     private TextView hotel_name;
@@ -141,7 +141,7 @@ public class MainFragment extends BaseFragment implements TvRecyclerView.OnItemL
                 R.drawable.main_title_shopping,
                 R.drawable.main_title_food,
                 R.drawable.main_title_near
-                };
+        };
         imageResourcesSelected = new int[]{
                 R.drawable.main_title_movie_select,
                 R.drawable.main_title_music_select,
@@ -151,7 +151,7 @@ public class MainFragment extends BaseFragment implements TvRecyclerView.OnItemL
                 R.drawable.main_title_shopping_select,
                 R.drawable.main_title_food_select,
                 R.drawable.main_title_near_select
-                };
+        };
 
         EventBus.getDefault().register(this);
 
@@ -193,14 +193,14 @@ public class MainFragment extends BaseFragment implements TvRecyclerView.OnItemL
 
         handler.post(runnable);
 
-        if(savedInstanceState == null) {
+        if (savedInstanceState == null) {
             recyclerView.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     recyclerView.setSelection(2);
                 }
             }, 50);
-        }else{
+        } else {
             final int selectedPos = savedInstanceState.getInt("selectedPos");
             recyclerView.postDelayed(new Runnable() {
                 @Override
@@ -212,7 +212,7 @@ public class MainFragment extends BaseFragment implements TvRecyclerView.OnItemL
 
         mainUIBeenList = new ArrayList<>();
         //请求网络
-        MainNavigationPresenter presenter = new MainNavigationPresenter(mContext,this);
+        MainNavigationPresenter presenter = new MainNavigationPresenter(mContext, this);
         presenter.request(this);
 
         LogUtils.d("main_createview");
@@ -246,8 +246,8 @@ public class MainFragment extends BaseFragment implements TvRecyclerView.OnItemL
     public void onStart() {
         super.onStart();
         handler.removeCallbacks(runnable);
-        handler.postDelayed(runnable,0);
-        if(!EventBus.getDefault().isRegistered(this)) {
+        handler.postDelayed(runnable, 0);
+        if (!EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().register(this);
         }
     }
@@ -261,7 +261,7 @@ public class MainFragment extends BaseFragment implements TvRecyclerView.OnItemL
     public void onStop() {
         super.onStop();
         handler.removeCallbacks(runnable);
-        handler.postDelayed(runnable,0);
+        handler.postDelayed(runnable, 0);
         EventBus.getDefault().unregister(this);
         OkHttpUtils.cancel(this);
     }
@@ -273,9 +273,9 @@ public class MainFragment extends BaseFragment implements TvRecyclerView.OnItemL
         handler.removeCallbacks(runnable);
         EventBus.getDefault().unregister(this);
         //执行activity播放酒店视频
-        if(mContext instanceof MainActivity) {
+        if (mContext instanceof MainActivity) {
             ((MainActivity) mContext).onMainDestroy();
-        }else if(mContext instanceof TexureViewActivity){
+        } else if (mContext instanceof TexureViewActivity) {
             ((TexureViewActivity) mContext).onMainDestroy();
         }
     }
@@ -299,7 +299,7 @@ public class MainFragment extends BaseFragment implements TvRecyclerView.OnItemL
                     if (recyclerView.getSelectedPosition() == childCount - 3) {
                         return true;
                     }
-                }catch (Exception e){
+                } catch (Exception e) {
                     return true;
                 }
             }
@@ -354,57 +354,22 @@ public class MainFragment extends BaseFragment implements TvRecyclerView.OnItemL
     @Override
     public void onItemClick(TvRecyclerView parent, View itemView, final int position) {
         currentPos = position;
-        if(mainUIBeenList.get(currentPos).getType().equals(Constants.TITLE_TV)){
+        if (mainUIBeenList.get(currentPos).getType().equals(Constants.TITLE_TV)) {
 
-            //云溪 组播 无响应
-//            launchApp("com.hassmedia.hslooktv");
-            if(Constants.DeviceInfo.equals(Constants.MSTAR_TV) || Constants.DeviceInfo.equals(Constants.OTHER)) {
-                if (isInstallByread(Constants.mstar_tv_player)) {
-                    Bundle bundle = new Bundle();
-                    bundle.putByte(Constants.PAGE_STATUS, Constants.PAGE_START);
-                    bundle.putString("behaviour", Constants.TV);
-                    ServiceUtils.startService(PageRecordService.class, bundle);
-                    //进入TV播放界面
-                    ComponentName componentName = new ComponentName(Constants.mstar_tv_player,
-                            "com.mstar.tv.tvplayer.ui.RootActivity");
-                    Intent intent01 = new Intent(Intent.ACTION_MAIN);
-                    intent01.addCategory(Intent.CATEGORY_LAUNCHER);
-                    intent01.setComponent(componentName);
-                    startActivity(intent01);
-                }
-            }
-            if(Constants.DeviceInfo.equals(Constants.PHILIPS) || Constants.DeviceInfo.equals(Constants.OTHER)) {
-
-//                //云溪 组播 无响应
-//            launchApp("com.hassmedia.hslooktv");
-                //花溪 HDMI 无声音
-//            MTvManager mTvManager = new MTvManager();
-//            mTvManager.setInputSource(mContext, TvOsType.EnumInputSource.E_INPUT_SOURCE_HDMI1);
-                //茅台大饭店
-                if (isInstallByread("com.sciptv.iptv")) {
-                    ComponentName componentName = new ComponentName("com.sciptv.iptv",
-                            "com.sciptv.iptv.Live");
-                    Intent intent01 = new Intent(Intent.ACTION_MAIN);
-                    intent01.addCategory(Intent.CATEGORY_LAUNCHER);
-                    intent01.setComponent(componentName);
-                    startActivity(intent01);
-                } else if(isInstallByread("com.hassmedia.hslooktv")){
-                    //云溪 组播 无响应
-                    launchApp("com.hassmedia.hslooktv");
-                }else if(isInstallByread("dpplay.com")){
-                    //大理 麓椿花园酒店
-                    Intent intent=new Intent();
-                    intent.setClassName("dpplay.com", "hdp.player.StartActivity");
-                    startActivity(intent);
-                }else{
-                    MTvManager mTvManager = new MTvManager();
-                    mTvManager.setInputSource(mContext, TvOsType.EnumInputSource.E_INPUT_SOURCE_HDMI1);
-                }
+            //茅台大饭店
+            if (isInstallByread("com.sciptv.iptv")) {
+                ComponentName componentName = new ComponentName("com.sciptv.iptv",
+                        "com.sciptv.iptv.Live");
+                Intent intent01 = new Intent(Intent.ACTION_MAIN);
+                intent01.addCategory(Intent.CATEGORY_LAUNCHER);
+                intent01.setComponent(componentName);
+                startActivity(intent01);
             }
             return;
         }
-        Intent intent = new Intent(mContext,NetWorkService.class);
-        intent.putExtra("IPAddress",Constants.IP_ADDRESS);
+
+        Intent intent = new Intent(mContext, NetWorkService.class);
+        intent.putExtra("IPAddress", Constants.IP_ADDRESS);
         mContext.startService(intent);
     }
 
@@ -413,9 +378,9 @@ public class MainFragment extends BaseFragment implements TvRecyclerView.OnItemL
         if (mainPageInfo != null) {
             hotel_name_en.setText(mainPageInfo.getEnName() + "  ");
             hotel_name.setText(mainPageInfo.getZhName());
-            if (mainPageInfo.getLogo() != null && mainPageInfo.getLogo().getPath() != null){
+            if (mainPageInfo.getLogo() != null && mainPageInfo.getLogo().getPath() != null) {
                 ShowImageUtils.showImageView(mContext, mainPageInfo.getLogo().getPath(), iv_logo);
-            }else {
+            } else {
                 ShowImageUtils.showImageView(mContext, R.drawable.hotel_phone_icon, iv_logo);
             }
         } else {
@@ -430,7 +395,7 @@ public class MainFragment extends BaseFragment implements TvRecyclerView.OnItemL
         tv_week.setText(getWeekOfDate(new Date(Constants.REAL_TIME)));
         tv_date.setText(timesArray[0]);
         tv_time.setText(timesArray[1]);
-        if(mainPageInfo != null) {
+        if (mainPageInfo != null) {
             mainPageInfo.setSystemTime(Constants.REAL_TIME);
         }
     }
@@ -509,18 +474,18 @@ public class MainFragment extends BaseFragment implements TvRecyclerView.OnItemL
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt("selectedPos",recyclerView.getSelectedPosition());
+        outState.putInt("selectedPos", recyclerView.getSelectedPosition());
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onNetInfo(String status){
-        if(status.equals(Constants.NETWORK_OK)){
+    public void onNetInfo(String status) {
+        if (status.equals(Constants.NETWORK_OK)) {
             switch (mainUIBeenList.get(currentPos).getType()) {
                 case Constants.TITLE_MUSIC:
                     //进入音乐播放界面
                     Intent intent = new Intent(mContext, MusicActivity.class);
                     mContext.startActivity(intent);
-                    ((Activity)mContext).overridePendingTransition(R.anim.act_switch_fade_in,R.anim.act_switch_fade_out);
+                    ((Activity) mContext).overridePendingTransition(R.anim.act_switch_fade_in, R.anim.act_switch_fade_out);
                     return;
                 case Constants.TITLE_SHOPPING:
                     if (Constants.mainPageInfo == null) {
@@ -530,7 +495,7 @@ public class MainFragment extends BaseFragment implements TvRecyclerView.OnItemL
                     //进入购物界面
                     Intent intent02 = new Intent(mContext, MallGoodsListActivity.class);
                     startActivity(intent02);
-                    ((Activity)mContext).overridePendingTransition(R.anim.act_switch_fade_in,R.anim.act_switch_fade_out);
+                    ((Activity) mContext).overridePendingTransition(R.anim.act_switch_fade_in, R.anim.act_switch_fade_out);
                     return;
                 case Constants.TITLE_WEATHER:
                     if (getFragmentManager().findFragmentByTag("WeatherDialogFragment") == null) {
@@ -557,11 +522,11 @@ public class MainFragment extends BaseFragment implements TvRecyclerView.OnItemL
             }
             Bundle bundle = new Bundle();
             bundle.putString(Constants.MODULE_TITLE, mainUIBeenList.get(currentPos).getType());
-            if(mainUIBeenList.get(currentPos).getSecServiceList() != null) {
+            if (mainUIBeenList.get(currentPos).getSecServiceList() != null) {
                 bundle.putParcelableArrayList("mainUIBeenList", (ArrayList<? extends Parcelable>) mainUIBeenList.get(currentPos).getSecServiceList());
             }
             ServiceUtils.startService(TitleRequestService.class, bundle);
-        }else{
+        } else {
             ToastUtils.showShort("网络连接失败");
         }
     }
@@ -576,16 +541,16 @@ public class MainFragment extends BaseFragment implements TvRecyclerView.OnItemL
         try {
             mainUIBeenList.clear();
             List<MainUIModel> data = dataList.data;
-            for(int i = 0 ; i < data.size();i++){
-                if(data.get(i).getDisplay() == 1) {
+            for (int i = 0; i < data.size(); i++) {
+                if (data.get(i).getDisplay() == 1) {
                     MainUIBean mainUIBean = new MainUIBean();
                     int tag = data.get(i).getTag();
                     mainUIBean.setIcon(imageResources[(tag - 1) % imageResources.length]);
                     mainUIBean.setIconSelected(imageResourcesSelected[(tag - 1) % imageResources.length]);
                     mainUIBean.setName(data.get(i).getMenuName());
-                    if(tag-1 < titleList.length) {
+                    if (tag - 1 < titleList.length) {
                         mainUIBean.setType(titleList[(tag - 1)]);
-                    }else {
+                    } else {
                         mainUIBean.setType(Constants.TITLE_OTHER);
                     }
                     mainUIBean.setTag(tag);
@@ -593,8 +558,8 @@ public class MainFragment extends BaseFragment implements TvRecyclerView.OnItemL
                     mainUIBeenList.add(mainUIBean);
                 }
             }
-            mainUIBeenList.add(0,new MainUIBean());
-            mainUIBeenList.add(0,new MainUIBean());
+            mainUIBeenList.add(0, new MainUIBean());
+            mainUIBeenList.add(0, new MainUIBean());
             mainUIBeenList.add(new MainUIBean());
             mainUIBeenList.add(new MainUIBean());
 
@@ -612,7 +577,7 @@ public class MainFragment extends BaseFragment implements TvRecyclerView.OnItemL
                 }
             }, 50);
 
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
     }
@@ -620,22 +585,22 @@ public class MainFragment extends BaseFragment implements TvRecyclerView.OnItemL
     @Override
     public void onError() {
         try {
-            for(int i = 0 ; i < 4;i++){
+            for (int i = 0; i < 4; i++) {
                 MainUIBean mainUIBean = new MainUIBean();
-                mainUIBean.setIcon(imageResources[i%imageResources.length]);
-                mainUIBean.setIconSelected(imageResourcesSelected[i%imageResources.length]);
-                mainUIBean.setName(strings[(i + 2)%strings.length]);
-                if(i < titleList.length) {
+                mainUIBean.setIcon(imageResources[i % imageResources.length]);
+                mainUIBean.setIconSelected(imageResourcesSelected[i % imageResources.length]);
+                mainUIBean.setName(strings[(i + 2) % strings.length]);
+                if (i < titleList.length) {
                     mainUIBean.setType(titleList[i]);
-                }else {
+                } else {
                     mainUIBean.setType(Constants.TITLE_OTHER);
                 }
                 mainUIBean.setTag(i);
                 mainUIBeenList.add(mainUIBean);
             }
 
-            mainUIBeenList.add(0,new MainUIBean());
-            mainUIBeenList.add(0,new MainUIBean());
+            mainUIBeenList.add(0, new MainUIBean());
+            mainUIBeenList.add(0, new MainUIBean());
             mainUIBeenList.add(new MainUIBean());
             mainUIBeenList.add(new MainUIBean());
 
@@ -653,7 +618,7 @@ public class MainFragment extends BaseFragment implements TvRecyclerView.OnItemL
                 }
             }, 50);
 
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
     }
@@ -671,7 +636,7 @@ public class MainFragment extends BaseFragment implements TvRecyclerView.OnItemL
             Intent intent = mContext.getPackageManager().getLaunchIntentForPackage(
                     packageName);
             startActivity(intent);
-        }else{
+        } else {
             ToastUtils.showShort("请安装电视直播应用!");
         }
     }
