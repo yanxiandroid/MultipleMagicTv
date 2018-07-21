@@ -40,7 +40,7 @@ import com.yht.iptv.utils.DialogUtils;
 import com.yht.iptv.utils.ShowImageUtils;
 import com.yht.iptv.utils.TextUtils;
 import com.yht.iptv.utils.ToastUtils;
-import com.yht.iptv.view.BaseActivity;
+import com.yht.iptv.BaseActivity;
 
 import org.xutils.db.sqlite.WhereBuilder;
 

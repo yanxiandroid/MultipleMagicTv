@@ -12,7 +12,7 @@ import com.yht.iptv.callback.JsonCallback;
 import com.yht.iptv.model.AdvertVideoInfo;
 import com.yht.iptv.model.BaseModel;
 import com.yht.iptv.utils.Constants;
-import com.yht.iptv.utils.FileUtils;
+import com.yht.iptv.FileUtils;
 import com.yht.iptv.utils.HttpConstants;
 import com.yht.iptv.utils.OkHttpUtils;
 

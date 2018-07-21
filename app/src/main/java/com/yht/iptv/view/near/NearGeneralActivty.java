@@ -23,7 +23,7 @@ import com.yht.iptv.utils.HttpConstants;
 import com.yht.iptv.utils.ServiceUtils;
 import com.yht.iptv.utils.ShowImageUtils;
 import com.yht.iptv.utils.ToastUtils;
-import com.yht.iptv.view.BaseActivity;
+import com.yht.iptv.BaseActivity;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

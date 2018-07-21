@@ -16,8 +16,6 @@ import com.tpv.tv.tvmanager.tpvtvinputmgr.TpvTvInputMgr;
 import com.yht.iptv.push.MinaClientService;
 import com.yht.iptv.utils.AppManagerUtils;
 import com.yht.iptv.utils.AppUtils;
-import com.yht.iptv.utils.Constants;
-import com.yht.iptv.utils.DeviceUtils;
 import com.yht.iptv.utils.ServiceUtils;
 
 /**

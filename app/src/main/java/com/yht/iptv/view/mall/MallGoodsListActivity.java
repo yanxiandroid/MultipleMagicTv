@@ -44,7 +44,7 @@ import com.yht.iptv.utils.OkHttpUtils;
 import com.yht.iptv.utils.ServiceUtils;
 import com.yht.iptv.utils.ShowImageUtils;
 import com.yht.iptv.utils.ToastUtils;
-import com.yht.iptv.view.BaseActivity;
+import com.yht.iptv.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;

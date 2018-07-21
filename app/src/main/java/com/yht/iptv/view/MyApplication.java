@@ -11,14 +11,13 @@ import com.lzy.okgo.cache.CacheMode;
 import com.lzy.okgo.interceptor.HttpLoggingInterceptor;
 import com.squareup.leakcanary.LeakCanary;
 import com.yht.iptv.utils.CrashHandler;
-import com.yht.iptv.utils.FileUtils;
+import com.yht.iptv.FileUtils;
 import com.yht.iptv.utils.TypefaceUtil;
 import com.yht.iptv.utils.Utils;
 
 import org.xutils.x;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 

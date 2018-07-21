@@ -48,13 +48,13 @@ import com.yht.iptv.utils.AppManagerUtils;
 import com.yht.iptv.utils.Constants;
 import com.yht.iptv.utils.DBUtils;
 import com.yht.iptv.utils.DialogUtils;
-import com.yht.iptv.utils.FileUtils;
+import com.yht.iptv.FileUtils;
 import com.yht.iptv.utils.LanguageUtils;
 import com.yht.iptv.utils.QrCodeCreate;
 import com.yht.iptv.utils.SPUtils;
 import com.yht.iptv.utils.ServiceUtils;
 import com.yht.iptv.utils.ToastUtils;
-import com.yht.iptv.view.BaseActivity;
+import com.yht.iptv.BaseActivity;
 import com.yht.iptv.view.hotel.HotelShowActivity;
 import com.yht.iptv.view.movie.PlayVideoActivity;
 

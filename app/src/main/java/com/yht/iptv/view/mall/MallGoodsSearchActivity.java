@@ -30,7 +30,7 @@ import com.yht.iptv.presenter.MallListPresenter;
 import com.yht.iptv.tools.CustomListViewTv;
 import com.yht.iptv.utils.DBUtils;
 import com.yht.iptv.utils.ToastUtils;
-import com.yht.iptv.view.BaseActivity;
+import com.yht.iptv.BaseActivity;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;

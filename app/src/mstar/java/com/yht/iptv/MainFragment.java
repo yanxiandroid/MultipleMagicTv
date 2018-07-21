@@ -20,8 +20,6 @@ import android.widget.TextView;
 
 import com.apkfuns.logutils.LogUtils;
 import com.owen.tvrecyclerview.widget.TvRecyclerView;
-import com.vigroup.android.tvapi.common.vo.TvOsType;
-import com.vigroup.tvapi.common.MTvManager;
 import com.yht.iptv.adapter.MainFragmentRecAdapter;
 import com.yht.iptv.callback.IPresenterBase;
 import com.yht.iptv.model.BaseModel;
@@ -44,7 +42,6 @@ import com.yht.iptv.utils.ToastUtils;
 import com.yht.iptv.view.BaseFragment;
 import com.yht.iptv.view.MainActivity;
 import com.yht.iptv.view.MenuDialogFragment;
-import com.yht.iptv.view.main.MainMenuDialogFragment;
 import com.yht.iptv.view.main.TexureViewActivity;
 import com.yht.iptv.view.main.WeatherDialogFragment;
 import com.yht.iptv.view.mall.MallGoodsListActivity;

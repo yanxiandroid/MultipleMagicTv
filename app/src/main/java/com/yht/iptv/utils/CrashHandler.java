@@ -9,15 +9,12 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Build;
 import android.os.Environment;
-import android.os.Looper;
 import android.util.Log;
-import android.widget.Toast;
 
+import com.yht.iptv.FileUtils;
+import com.yht.iptv.WelcomeActivity;
 import com.yht.iptv.push.MinaClientService;
-import com.yht.iptv.service.FloatingService;
 import com.yht.iptv.socket.MinaService;
-import com.yht.iptv.view.MainActivity;
-import com.yht.iptv.view.WelcomeActivity;
 
 import java.io.File;
 import java.io.FileOutputStream;

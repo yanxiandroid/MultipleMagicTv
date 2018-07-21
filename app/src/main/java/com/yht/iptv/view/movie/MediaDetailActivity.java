@@ -48,7 +48,7 @@ import com.yht.iptv.utils.SPUtils;
 import com.yht.iptv.utils.ServiceUtils;
 import com.yht.iptv.utils.ShowImageUtils;
 import com.yht.iptv.utils.ToastUtils;
-import com.yht.iptv.view.BaseActivity;
+import com.yht.iptv.BaseActivity;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

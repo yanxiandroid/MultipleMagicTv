@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.yht.iptv.BaseActivity;
 import com.yht.iptv.R;
 import com.yht.iptv.adapter.GeneralFragmentAdapter;
 import com.yht.iptv.callback.IPresenterBase;
@@ -33,7 +34,6 @@ import com.yht.iptv.utils.OkHttpUtils;
 import com.yht.iptv.utils.ServiceUtils;
 import com.yht.iptv.utils.ShowImageUtils;
 import com.yht.iptv.utils.ToastUtils;
-import com.yht.iptv.view.BaseActivity;
 
 import org.xutils.db.sqlite.WhereBuilder;
 

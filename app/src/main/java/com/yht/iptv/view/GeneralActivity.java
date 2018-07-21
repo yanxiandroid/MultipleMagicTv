@@ -10,6 +10,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.yht.iptv.BaseActivity;
 import com.yht.iptv.R;
 import com.yht.iptv.adapter.GeneralPageAdapter;
 import com.yht.iptv.callback.IPresenterBase;

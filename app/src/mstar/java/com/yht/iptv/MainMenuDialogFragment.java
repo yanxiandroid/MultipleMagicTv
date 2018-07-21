@@ -1,4 +1,4 @@
-package com.yht.iptv.view.main;
+package com.yht.iptv;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -36,6 +36,8 @@ import com.yht.iptv.utils.ToastUtils;
 import com.yht.iptv.view.GeneralActivity;
 import com.yht.iptv.view.hotel.HotelFoodActivity;
 import com.yht.iptv.view.hotel.HotelGeneralActivity;
+import com.yht.iptv.view.main.HotelPhoneDialogFragment;
+import com.yht.iptv.view.main.MessagePushDialogFragment;
 import com.yht.iptv.view.movie.MovieDetailActivity;
 import com.yht.iptv.view.movie.MovieDetailTexureActivity;
 import com.yht.iptv.view.near.BusTimetableFragment;
@@ -236,11 +238,11 @@ public class MainMenuDialogFragment extends DialogFragment implements TvRecycler
         switch (titleBean.getType()) {
             case Constants.TITLE_MOVIE:
                 Intent intent;
-                if(Constants.DeviceInfo.equals(Constants.PHILIPS)){
-                    intent = new Intent(mContext, MovieDetailTexureActivity.class);
-                }else{
+//                if(Constants.DeviceInfo.equals(Constants.PHILIPS)){
+//                    intent = new Intent(mContext, MovieDetailTexureActivity.class);
+//                }else{
                     intent = new Intent(mContext, MovieDetailActivity.class);
-                }
+//                }
                 intent.putExtra("categoryId", titleBean.getId() + "");
                 mContext.startActivity(intent);
                 ((Activity) mContext).overridePendingTransition(R.anim.act_switch_fade_in, R.anim.act_switch_fade_out);

@@ -1,7 +1,8 @@
-package com.yht.iptv.utils;
+package com.yht.iptv;
 
 import android.os.Environment;
 
+import com.yht.iptv.utils.Constants;
 import com.yht.iptv.view.MyApplication;
 
 import java.io.BufferedReader;
@@ -48,36 +49,36 @@ public final class FileUtils {
     public static String getAppPath() {
 
         String path;
-        switch (Constants.DeviceInfo) {
-            case Constants.PHILIPS:
-                path = MyApplication.getAppContext().getFilesDir()
-                        + File.separator
-                        + "iptv"
-                        + File.separator;
-                String[] command_data = {"chmod", "777", path};
-                ProcessBuilder builder_data = new ProcessBuilder(command_data);
-                try {
-                    builder_data.start();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                break;
-            case Constants.MSTAR_TV:
-                path = Environment.getExternalStorageDirectory()
-                        .getAbsolutePath()
-                        + File.separator
-                        + "iptv"
-                        + File.separator;
-                break;
-            default:
-                path = Environment.getExternalStorageDirectory()
-                        .getAbsolutePath()
-                        + File.separator
-                        + "iptv"
-                        + File.separator;
-                break;
+//        switch (Constants.DeviceInfo) {
+//            case Constants.PHILIPS:
+        path = MyApplication.getAppContext().getFilesDir()
+                + File.separator
+                + "iptv"
+                + File.separator;
+        String[] command_data = {"chmod", "777", path};
+        ProcessBuilder builder_data = new ProcessBuilder(command_data);
+        try {
+            builder_data.start();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+//
+//                break;
+//            case Constants.MSTAR_TV:
+//        path = Environment.getExternalStorageDirectory()
+//                .getAbsolutePath()
+//                + File.separator
+//                + "iptv"
+//                + File.separator;
+//                break;
+//            default:
+//                path = Environment.getExternalStorageDirectory()
+//                        .getAbsolutePath()
+//                        + File.separator
+//                        + "iptv"
+//                        + File.separator;
+//                break;
+//        }
 
         File file = new File(path);
         if (!file.exists()) {

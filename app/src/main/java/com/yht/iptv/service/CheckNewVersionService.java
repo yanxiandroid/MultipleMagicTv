@@ -12,8 +12,7 @@ import com.yht.iptv.model.BaseModel;
 import com.yht.iptv.model.DownloadInfo;
 import com.yht.iptv.presenter.AppDownloadPresenter;
 import com.yht.iptv.presenter.AppUpdatePresenter;
-import com.yht.iptv.utils.AppUtils;
-import com.yht.iptv.utils.FileUtils;
+import com.yht.iptv.FileUtils;
 import com.yht.iptv.utils.OkHttpUtils;
 
 import org.greenrobot.eventbus.EventBus;

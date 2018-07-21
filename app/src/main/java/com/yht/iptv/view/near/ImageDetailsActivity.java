@@ -23,7 +23,7 @@ import com.yht.iptv.service.PageRecordService;
 import com.yht.iptv.tools.ZoomImageView;
 import com.yht.iptv.utils.Constants;
 import com.yht.iptv.utils.ServiceUtils;
-import com.yht.iptv.view.BaseActivity;
+import com.yht.iptv.BaseActivity;
 
 import java.lang.ref.WeakReference;
 import java.util.List;

@@ -16,7 +16,7 @@ import com.yht.iptv.tools.CustomDialog;
 import com.yht.iptv.utils.Constants;
 import com.yht.iptv.utils.DialogUtils;
 import com.yht.iptv.utils.ToastUtils;
-import com.yht.iptv.view.BaseActivity;
+import com.yht.iptv.BaseActivity;
 
 public class HotelShowActivity extends BaseActivity implements PLMediaPlayer.OnErrorListener, PLMediaPlayer.OnCompletionListener, PLMediaPlayer.OnInfoListener {
 

@@ -44,7 +44,7 @@ import com.yht.iptv.utils.QrCodeCreate;
 import com.yht.iptv.utils.SPUtils;
 import com.yht.iptv.utils.ShowImageUtils;
 import com.yht.iptv.utils.ToastUtils;
-import com.yht.iptv.view.BaseActivity;
+import com.yht.iptv.BaseActivity;
 
 import java.lang.ref.WeakReference;
 import java.text.DecimalFormat;

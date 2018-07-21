@@ -1,7 +1,6 @@
 package com.yht.iptv;
 
 import android.app.Activity;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -32,7 +31,6 @@ import com.yht.iptv.model.MainUIModel;
 import com.yht.iptv.model.WeatherInfo;
 import com.yht.iptv.presenter.MainNavigationPresenter;
 import com.yht.iptv.service.NetWorkService;
-import com.yht.iptv.service.PageRecordService;
 import com.yht.iptv.service.TitleRequestService;
 import com.yht.iptv.service.WeatherService;
 import com.yht.iptv.utils.AnimationUtils;
@@ -44,7 +42,6 @@ import com.yht.iptv.utils.ToastUtils;
 import com.yht.iptv.view.BaseFragment;
 import com.yht.iptv.view.MainActivity;
 import com.yht.iptv.view.MenuDialogFragment;
-import com.yht.iptv.view.main.MainMenuDialogFragment;
 import com.yht.iptv.view.main.TexureViewActivity;
 import com.yht.iptv.view.main.WeatherDialogFragment;
 import com.yht.iptv.view.mall.MallGoodsListActivity;

@@ -9,7 +9,7 @@ import com.lzy.okgo.callback.FileCallback;
 import com.lzy.okgo.model.Progress;
 import com.lzy.okgo.model.Response;
 import com.yht.iptv.utils.AppUtils;
-import com.yht.iptv.utils.FileUtils;
+import com.yht.iptv.FileUtils;
 import com.yht.iptv.utils.OkHttpUtils;
 
 
