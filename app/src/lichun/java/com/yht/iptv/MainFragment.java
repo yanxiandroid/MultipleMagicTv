@@ -70,7 +70,7 @@ import java.util.Locale;
 public class MainFragment extends BaseFragment implements TvRecyclerView.OnItemListener, IPresenterBase<List<MainUIModel>> {
 
     private TvRecyclerView recyclerView;
-    private Context mContext;
+    private Context mContext;     
     private boolean isHidden;
     private String[] strings;
 //    private SparseArray<String> sparseArray;

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MagicTV.iml" filepath="$PROJECT_DIR$/MagicTV.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MultipleMagicTv.iml" filepath="$PROJECT_DIR$/MultipleMagicTv.iml" />
       <module fileurl="file://$PROJECT_DIR$/TVTools/TVTools.iml" filepath="$PROJECT_DIR$/TVTools/TVTools.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
