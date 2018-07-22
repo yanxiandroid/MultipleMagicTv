@@ -351,11 +351,9 @@ public class MainFragment extends BaseFragment implements TvRecyclerView.OnItemL
         currentPos = position;
         if (mainUIBeenList.get(currentPos).getType().equals(Constants.TITLE_TV)) {
 
-            if (isInstallByread("dpplay.com")) {
+            if (isInstallByread("com.zhgxnet.zhtv.lan")) {
                 //大理 麓椿花园酒店
-                Intent intent = new Intent();
-                intent.setClassName("dpplay.com", "hdp.player.StartActivity");
-                startActivity(intent);
+               launchApp("com.zhgxnet.zhtv.lan");
             }
             return;
         }

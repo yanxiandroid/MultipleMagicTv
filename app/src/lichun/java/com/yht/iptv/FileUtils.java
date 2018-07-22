@@ -189,10 +189,11 @@ public final class FileUtils {
                 file.delete(); // delete()方法 你应该知道 是删除的意思;
             } else if (file.isDirectory()) { // 否则如果它是一个目录
                 File files[] = file.listFiles(); // 声明目录下所有的文件 files[];
-                for (int i = 0; i < files.length; i++) { // 遍历目录下所有的文件
-                    deleteFile(files[i]); // 把每个文件 用这个方法进行迭代
+                for (File f :files) { // 遍历目录下所有的文件
+                    deleteFile(f); // 把每个文件 用这个方法进行迭代
                 }
             }
+
         }
     }
 
