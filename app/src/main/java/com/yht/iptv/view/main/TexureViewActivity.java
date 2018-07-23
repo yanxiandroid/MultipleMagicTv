@@ -16,6 +16,8 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -610,7 +612,7 @@ public class TexureViewActivity extends BaseActivity implements CacheListener, I
             String startingVideo = mainPageInfo.getStartingVideo();
             if (lastCacheUrl != null && !lastCacheUrl.equals("")) {
                 if (lastCacheUrl.equals(startingVideo)) {
-                    Log.e("mVideoView","1请求网络成功"+mediaPlayer.isPlaying());
+//                    Log.e("mVideoView","1请求网络成功"+mediaPlayer.isPlaying());
                     if (!mediaPlayer.isPlaying() && !isNotNeedPlay) {
                         //播放
                         String proxyUrl = proxy.getProxyUrl(lastCacheUrl);
@@ -623,7 +625,7 @@ public class TexureViewActivity extends BaseActivity implements CacheListener, I
                     //保存视频URL
                     SPUtils.put(this, Constants.CACHE_VIDEO, startingVideo);
                     lastCacheUrl = startingVideo;
-                    Log.e("mVideoView","2请求网络成功"+mediaPlayer.isPlaying());
+//                    Log.e("mVideoView","2请求网络成功"+mediaPlayer.isPlaying());
                     if (!mediaPlayer.isPlaying() && !isNotNeedPlay) {
                         //播放
                         String proxyUrl = proxy.getProxyUrl(lastCacheUrl);
@@ -633,7 +635,7 @@ public class TexureViewActivity extends BaseActivity implements CacheListener, I
                     }
                 }
             } else {
-                Log.e("mVideoView","3请求网络成功"+mediaPlayer.isPlaying());
+                //Log.e("mVideoView","3请求网络成功"+mediaPlayer.isPlaying());
                 //保存视频URL
                 SPUtils.put(this, Constants.CACHE_VIDEO, startingVideo);
                 lastCacheUrl = startingVideo;

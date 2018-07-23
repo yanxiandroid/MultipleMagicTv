@@ -34,6 +34,7 @@ import com.yht.iptv.view.hotel.HotelFoodActivity;
 import com.yht.iptv.view.hotel.HotelGeneralActivity;
 import com.yht.iptv.view.main.HotelPhoneDialogFragment;
 import com.yht.iptv.view.main.MessagePushDialogFragment;
+import com.yht.iptv.view.movie.MovieDetailActivity;
 import com.yht.iptv.view.movie.MovieDetailTexureActivity;
 import com.yht.iptv.view.near.BusTimetableFragment;
 import com.yht.iptv.view.near.ImageDetailsActivity;
@@ -234,9 +235,9 @@ public class MainMenuDialogFragment extends DialogFragment implements TvRecycler
             case Constants.TITLE_MOVIE:
                 Intent intent;
 //                if(Constants.DeviceInfo.equals(Constants.PHILIPS)){
-                    intent = new Intent(mContext, MovieDetailTexureActivity.class);
+//                    intent = new Intent(mContext, MovieDetailTexureActivity.class);
 //                }else{
-//                    intent = new Intent(mContext, MovieDetailActivity.class);
+                    intent = new Intent(mContext, MovieDetailActivity.class);
 //                }
                 intent.putExtra("categoryId", titleBean.getId() + "");
                 mContext.startActivity(intent);

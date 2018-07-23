@@ -7,6 +7,7 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 
+import com.yht.iptv.view.MainActivity;
 import com.yht.iptv.view.main.TexureViewActivity;
 
 import java.lang.ref.WeakReference;
@@ -80,7 +81,7 @@ public class WelcomeActivity extends AppCompatActivity {
 //                finish();
 //                break;
 //            case Constants.MSTAR_TV:
-        intent = new Intent(this, TexureViewActivity.class);
+        intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
 //                break;
