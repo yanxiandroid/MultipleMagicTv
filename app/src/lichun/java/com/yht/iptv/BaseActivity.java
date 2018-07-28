@@ -16,6 +16,7 @@ import com.tpv.tv.tvmanager.tpvtvinputmgr.TpvTvInputMgr;
 import com.yht.iptv.push.MinaClientService;
 import com.yht.iptv.utils.AppManagerUtils;
 import com.yht.iptv.utils.AppUtils;
+import com.yht.iptv.utils.Constants;
 import com.yht.iptv.utils.ServiceUtils;
 
 /**
@@ -25,6 +26,8 @@ import com.yht.iptv.utils.ServiceUtils;
 public class BaseActivity extends AppCompatActivity {
 
     private String TAG = "BaseActivity";
+    private boolean isFirst = false;
+    private boolean isFirstTV = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,11 @@ public class BaseActivity extends AppCompatActivity {
             ServiceUtils.startService(MinaClientService.class);
         }
 
+        if (!isFirst) {
+            isFirst = true;
+            System.setProperty("persist.sys.SemiStandby", "true");
+        }
+
 
 //        LogUtils.tag("DEVICES").e(Constants.DeviceInfo);
 
@@ -50,8 +58,12 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        LogUtils.tag(TAG).e("MagicTV-" + "V" + AppUtils.getAppVersionName() + "." + AppUtils.getAppVersionCode() + "_" + "release.apk");
-        startTVFirsts(this);
+        if (!isFirstTV) {
+            LogUtils.tag(TAG).e("MagicTV-" + "V" + AppUtils.getAppVersionName() + "." + AppUtils.getAppVersionCode() + "_" + "release.apk");
+            isFirstTV = true;
+            startTVFirsts(this);
+        }
+
     }
 
     public int getDimension(int id) {

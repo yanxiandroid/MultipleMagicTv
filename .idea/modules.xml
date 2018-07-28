@@ -3,11 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MultipleMagicTv.iml" filepath="$PROJECT_DIR$/MultipleMagicTv.iml" />
-      <module fileurl="file://D:\aswork\MultipleMagicTv\MultipleMagicTv.iml" filepath="D:\aswork\MultipleMagicTv\MultipleMagicTv.iml" />
       <module fileurl="file://$PROJECT_DIR$/TVTools/TVTools.iml" filepath="$PROJECT_DIR$/TVTools/TVTools.iml" />
-      <module fileurl="file://D:\aswork\MultipleMagicTv\TVTools\TVTools.iml" filepath="D:\aswork\MultipleMagicTv\TVTools\TVTools.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:\aswork\MultipleMagicTv\app\app.iml" filepath="D:\aswork\MultipleMagicTv\app\app.iml" />
     </modules>
   </component>
 </project>
