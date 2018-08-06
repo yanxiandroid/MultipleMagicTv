@@ -72,6 +72,9 @@ android {
         lichun {
 
         }
+        xierdun {
+
+        }
     }
 
     productFlavors {
@@ -88,6 +91,9 @@ android {
 
         }
         lichun {
+
+        }
+        xierdun{
 
         }
     }
