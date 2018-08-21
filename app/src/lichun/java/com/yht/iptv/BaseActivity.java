@@ -17,7 +17,9 @@ import com.yht.iptv.push.MinaClientService;
 import com.yht.iptv.utils.AppManagerUtils;
 import com.yht.iptv.utils.AppUtils;
 import com.yht.iptv.utils.Constants;
+import com.yht.iptv.utils.DeviceUtils;
 import com.yht.iptv.utils.ServiceUtils;
+import com.yht.iptv.utils.ToastUtils;
 
 /**
  * Created by admin on 2017/10/11.
@@ -58,6 +60,9 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        if(DeviceUtils.getManufacturer().contains("5933") || DeviceUtils.getModel().contains("5933")){
+            startTV5933();
+        }
         if (!isFirstTV) {
             LogUtils.tag(TAG).e("MagicTV-" + "V" + AppUtils.getAppVersionName() + "." + AppUtils.getAppVersionCode() + "_" + "release.apk");
             isFirstTV = true;
@@ -117,6 +122,16 @@ public class BaseActivity extends AppCompatActivity {
                 startTVFirst(context);
             }
         }, 500);
+    }
+
+
+    private void startTV5933(){
+        Intent i = new Intent();
+        i.setAction("com.tpv.xmic.SOURCECHANGE");
+        i.putExtra("name", "PhoneWindowManager");//依据实际APK填写,参数为String
+        i.putExtra("source", "E_INPUT_SOURCE_STORAGE");//依据实际需求切换的信源填写,参数为String
+        i.putExtra("isgotolauncher", "true");//非launcher均设为false,参数为String
+        sendBroadcast(i);
     }
 
 

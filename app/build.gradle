@@ -7,7 +7,7 @@ android {
         applicationId "com.yht.iptv"
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 67
+        versionCode 68
         versionName "2.0"
     }
 
